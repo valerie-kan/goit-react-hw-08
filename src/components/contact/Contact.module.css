@@ -1,0 +1,25 @@
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+p:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.contactItem {
+    width: 240px;
+    border: 1px solid white;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+
+.btn {
+    align-self: center;
+    background-color:rgba(136, 136, 136, 0.647);
+    border-radius: 6px;
+    border: 1px solid black;
+}
