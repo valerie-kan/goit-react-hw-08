@@ -1,20 +1,22 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import css from "./ContactForm.module.css";
-
 import { useDispatch } from "react-redux";
-import { addContacts } from "../../redux/contacts/operations";
-import { validationContactsSchema } from "../../utils/schema";
+
+import css from "./RegistrationForm.module.css";
+
+import { validationRegisterSchema } from "../../utils/schema";
+import { register } from "../../redux/auth/operations";
 
 const initialValues = {
   name: "",
-  number: "",
+  email: "",
+  password: "",
 };
 
-const ContactForm = () => {
+export const RegistrationForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    dispatch(addContacts(values));
+    dispatch(register(values));
     actions.resetForm();
   };
 
@@ -22,17 +24,12 @@ const ContactForm = () => {
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
-      validationSchema={validationContactsSchema}
+      validationSchema={validationRegisterSchema}
     >
       <Form className={css.form}>
         <label className={css.formLabel}>
           Name
-          <Field
-            className={css.formField}
-            type="text"
-            name="name"
-            autoComplete="off"
-          />
+          <Field type="text" name="name" className={css.formField} />
           <ErrorMessage
             className={css.errorMessage}
             name="name"
@@ -40,25 +37,27 @@ const ContactForm = () => {
           />
         </label>
         <label className={css.formLabel}>
-          Number
-          <Field
-            className={css.formField}
-            type="text"
-            name="number"
-            autoComplete="off"
-          />
+          Email
+          <Field type="text" name="email" className={css.formField} />
           <ErrorMessage
             className={css.errorMessage}
-            name="number"
+            name="name"
             component="span"
           />
         </label>
-        <button className={css.formBtn} type="submit">
-          Add contact
+        <label className={css.formLabel}>
+          Password
+          <Field type="password" name="password" className={css.formField} />
+          <ErrorMessage
+            className={css.errorMessage}
+            name="name"
+            component="span"
+          />
+        </label>
+        <button type="submit" className={css.formBtn}>
+          Register
         </button>
       </Form>
     </Formik>
   );
 };
-
-export default ContactForm;

@@ -1,20 +1,21 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import css from "./ContactForm.module.css";
-
 import { useDispatch } from "react-redux";
-import { addContacts } from "../../redux/contacts/operations";
-import { validationContactsSchema } from "../../utils/schema";
+
+import css from "./LoginForm.module.css";
+
+import { validationLoginSchema } from "../../utils/schema";
+import { login } from "../../redux/auth/operations";
 
 const initialValues = {
-  name: "",
-  number: "",
+  email: "",
+  password: "",
 };
 
-const ContactForm = () => {
+export const LoginForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    dispatch(addContacts(values));
+    dispatch(login(values));
     actions.resetForm();
   };
 
@@ -22,17 +23,12 @@ const ContactForm = () => {
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
-      validationSchema={validationContactsSchema}
+      validationSchema={validationLoginSchema}
     >
       <Form className={css.form}>
         <label className={css.formLabel}>
-          Name
-          <Field
-            className={css.formField}
-            type="text"
-            name="name"
-            autoComplete="off"
-          />
+          Email
+          <Field type="text" name="email" className={css.formField} />
           <ErrorMessage
             className={css.errorMessage}
             name="name"
@@ -40,25 +36,18 @@ const ContactForm = () => {
           />
         </label>
         <label className={css.formLabel}>
-          Number
-          <Field
-            className={css.formField}
-            type="text"
-            name="number"
-            autoComplete="off"
-          />
+          Password
+          <Field type="password" name="password" className={css.formField} />
           <ErrorMessage
             className={css.errorMessage}
-            name="number"
+            name="name"
             component="span"
           />
         </label>
-        <button className={css.formBtn} type="submit">
-          Add contact
+        <button type="submit" className={css.formBtn}>
+          Log in
         </button>
       </Form>
     </Formik>
   );
 };
-
-export default ContactForm;
