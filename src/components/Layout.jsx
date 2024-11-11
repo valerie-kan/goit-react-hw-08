@@ -1,11 +1,13 @@
 import { Suspense } from "react";
+
 import { AppBar } from "./appBar/AppBar";
+import Loader from "./loader/Loader";
 
 export const Layout = ({ children }) => {
   return (
     <>
       <AppBar />
-      <Suspense fallback={null}>{children}</Suspense>
+      <Suspense fallback={<Loader />}>{children}</Suspense>
     </>
   );
 };

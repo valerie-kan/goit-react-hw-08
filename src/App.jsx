@@ -2,6 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { lazy, useEffect } from "react";
 
+import Loader from "./components/loader/Loader";
+
 import "./App.css";
 import { refreshUser } from "./redux/auth/operations";
 import { selectIsRefreshing } from "./redux/auth/selectors";
@@ -26,7 +28,7 @@ function App() {
   }, [dispatch]);
 
   if (isRefreshing) {
-    return <div>Refreshing...</div>;
+    return <Loader />;
   }
 
   return (

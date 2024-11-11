@@ -1,18 +1,26 @@
 import { useSelector } from "react-redux";
-import { selectFilteredContacts } from "../../redux/filters/selectors";
+import {
+  selectFilter,
+  selectFilteredContacts,
+} from "../../redux/filters/selectors";
 
 import Contact from "../contact/Contact";
 import css from "./ContactList.module.css";
+import { selectLoading } from "../../redux/contacts/selectors";
 
 export const ContactList = () => {
   const filteredList = useSelector(selectFilteredContacts);
-  console.log(filteredList);
+  const startFilter = useSelector(selectFilter);
+  const isLoading = useSelector(selectLoading);
 
   return (
     <>
-      {filteredList.length === 0 ? (
+      {!startFilter && filteredList.length === 0 && !isLoading && (
+        <p className={css.noContactsMess}>There is no contacts yet 😔</p>
+      )}
+      {startFilter && filteredList.length === 0 ? (
         <p className={css.noContactsMess}>
-          There is no contacts yet 😔 Please add at least one...
+          There is no contacts according to your search...
         </p>
       ) : (
         <ul className={css.contactList}>

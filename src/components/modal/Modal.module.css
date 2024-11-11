@@ -1,0 +1,39 @@
+.backdrop {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  background-color: #285296;
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 8px;
+  padding: 15px;
+  border: 1px solid #285296;
+}
+
+.modalText {
+  text-align: center;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.modalBtns {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.btn {
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:hover {
+  border: 1px solid #285296;
+  transform: scale(1.1);
+}

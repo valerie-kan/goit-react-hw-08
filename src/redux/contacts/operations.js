@@ -5,7 +5,6 @@ export const fetchContacts = createAsyncThunk(
   "contacts/fetchAll",
   async (_, thunkAPI) => {
     try {
-      setToken(token);
       const { data } = await authRequest.get("/contacts");
       return data;
     } catch (error) {

@@ -3,6 +3,7 @@ import { useEffect } from "react";
 
 import css from "./ContactsPage.module.css";
 
+import Loader from "../../components/loader/Loader";
 import ContactForm from "../../components/contactForm/ContactForm";
 import SearchBox from "../../components/searchBox/SearchBox";
 import { ContactList } from "../../components/contactList/ContactList";
@@ -23,7 +24,7 @@ const ContactsPage = () => {
       <h1 className={css.mainTitle}>Phonebook</h1>
       <ContactForm />
       <SearchBox />
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <Loader />}
       {error ? (
         <p className={css.errorText}>An error occured: {error}</p>
       ) : (

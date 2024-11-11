@@ -1,15 +1,23 @@
 import { IoPerson } from "react-icons/io5";
 import { FaPhone } from "react-icons/fa6";
-import { useDispatch } from "react-redux";
+import { useState } from "react";
 
 import css from "./Contact.module.css";
-import { deleteContact } from "../../redux/contacts/operations";
+import Modal from "../modal/modal";
 
 const Contact = ({ id, name, number }) => {
-  const dispatch = useDispatch();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const onModalOpen = () => {
+    setIsModalOpen(true);
+  };
+
+  const onModalClose = () => {
+    setIsModalOpen(false);
+  };
 
   const handleClick = () => {
-    dispatch(deleteContact(id));
+    onModalOpen();
   };
 
   return (
@@ -25,6 +33,7 @@ const Contact = ({ id, name, number }) => {
       <button className={css.btn} type="button" onClick={handleClick}>
         Delete
       </button>
+      {isModalOpen && <Modal id={id} onModalClose={onModalClose} />}
     </li>
   );
 };
