@@ -1,16 +1,22 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-
-const baseUrl = "https://672a3076976a834dd0227e95.mockapi.io/contacts";
+import { authRequest, setToken } from "../auth/operations";
 
 export const fetchContacts = createAsyncThunk(
   "contacts/fetchAll",
   async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const token = state.auth.token;
+
+    if (!token) {
+      return thunkAPI.rejectWithValue("Valid token not found");
+    }
+
     try {
-      const { data } = await axios.get(baseUrl);
+      setToken(token);
+      const { data } = await authRequest.get("/contacts");
       return data;
     } catch (error) {
-      thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
@@ -19,10 +25,10 @@ export const addContacts = createAsyncThunk(
   "contacts/addContact",
   async (values, thunkAPI) => {
     try {
-      const { data } = await axios.post(baseUrl, { ...values });
+      const { data } = await authRequest.post("/contacts", { ...values });
       return data;
     } catch (error) {
-      thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
@@ -31,10 +37,10 @@ export const deleteContact = createAsyncThunk(
   "contacts/deleteContact",
   async (id, thunkAPI) => {
     try {
-      const { data } = await axios.delete(`${baseUrl}/${id}`, id);
+      const { data } = await authRequest.delete(`/contacts/${id}`, id);
       return data.id;
     } catch (error) {
-      thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

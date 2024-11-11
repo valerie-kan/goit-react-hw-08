@@ -1,0 +1,25 @@
+.userMenu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.userText {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.userBtn {
+  background-color: #5f5e5ea5;
+  border-radius: 6px;
+  border: 1px solid #ffffff;
+  padding: 5px;
+  max-width: 120px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.userBtn:hover {
+  background-color: #285296;
+  transform: scale(1.1);
+}

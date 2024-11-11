@@ -1,9 +1,18 @@
 .mainTitle {
-  margin-top: 0;
-  margin-bottom: 20px;
-  font-size: 35px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  font-size: 30px;
 }
 
 .mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: left;
+}
+
+.errorText {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: red;
 }

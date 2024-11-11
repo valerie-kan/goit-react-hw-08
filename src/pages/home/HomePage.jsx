@@ -1,6 +1,6 @@
 import css from "./HomePage.module.css";
 
-export const HomePage = () => {
+const HomePage = () => {
   return (
     <div className={css.mainCont}>
       <p className={css.homeText}>
@@ -12,3 +12,5 @@ export const HomePage = () => {
     </div>
   );
 };
+
+export default HomePage;

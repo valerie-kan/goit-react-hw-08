@@ -11,7 +11,7 @@ const initialValues = {
   password: "",
 };
 
-export const LoginForm = () => {
+const LoginForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
@@ -51,3 +51,5 @@ export const LoginForm = () => {
     </Formik>
   );
 };
+
+export default LoginForm;

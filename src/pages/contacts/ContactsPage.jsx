@@ -9,7 +9,7 @@ import { ContactList } from "../../components/contactList/ContactList";
 import { fetchContacts } from "../../redux/contacts/operations";
 import { selectError, selectLoading } from "../../redux/contacts/selectors";
 
-export const ContactsPage = () => {
+const ContactsPage = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectLoading);
   const error = useSelector(selectError);
@@ -24,7 +24,13 @@ export const ContactsPage = () => {
       <ContactForm />
       <SearchBox />
       {isLoading && <p>Loading...</p>}
-      {error ? <p>An error occured: {error}</p> : <ContactList />}
+      {error ? (
+        <p className={css.errorText}>An error occured: {error}</p>
+      ) : (
+        <ContactList />
+      )}
     </div>
   );
 };
+
+export default ContactsPage;

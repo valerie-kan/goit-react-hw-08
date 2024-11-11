@@ -16,11 +16,10 @@ const Contact = ({ id, name, number }) => {
     <li className={css.contactItem}>
       <div>
         <p>
-          <IoPerson /> {name}
+          <IoPerson style={{ color: "rgb(63, 175, 220)" }} /> {name}
         </p>
         <p>
-          <FaPhone />
-          {number}
+          <FaPhone style={{ color: "rgb(63, 175, 220)" }} /> {number}
         </p>
       </div>
       <button className={css.btn} type="button" onClick={handleClick}>
