@@ -10,11 +10,6 @@ import PrivateRoute from "./components/PrivateRoute";
 import RestrictedRoute from "./components/RestrictedRoute";
 import { Layout } from "./components/Layout";
 
-// import HomePage from "./pages/home/HomePage";
-// import RegistrationPage from "./pages/registration/RegistrationPage";
-// import LoginPage from "./pages/login/LoginPage";
-// import ContactsPage from "./pages/contacts/ContactsPage";
-
 const HomePage = lazy(() => import("./pages/home/HomePage"));
 const RegistrationPage = lazy(() =>
   import("./pages/registration/RegistrationPage")

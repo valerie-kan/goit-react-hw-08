@@ -2,8 +2,8 @@ import * as Yup from "yup";
 
 export const validationContactsSchema = Yup.object().shape({
   name: Yup.string()
-    .min(3, "Too short!")
-    .max(50, "Too long!")
+    .min(3, "Name must be at least 3 symbols")
+    .max(20, "Name must be less than 20 symbols")
     .required("Required"),
   number: Yup.string()
     .matches(/^\d{3}-\d{3}-\d{4}$/, "Must be in format XXX-XXX-XXXX")

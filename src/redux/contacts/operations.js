@@ -1,16 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { authRequest, setToken } from "../auth/operations";
+import { authRequest } from "../auth/operations";
 
 export const fetchContacts = createAsyncThunk(
   "contacts/fetchAll",
   async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const token = state.auth.token;
-
-    if (!token) {
-      return thunkAPI.rejectWithValue("Valid token not found");
-    }
-
     try {
       setToken(token);
       const { data } = await authRequest.get("/contacts");

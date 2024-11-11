@@ -28,19 +28,29 @@ const LoginForm = () => {
       <Form className={css.form}>
         <label className={css.formLabel}>
           Email
-          <Field type="text" name="email" className={css.formField} />
+          <Field
+            type="text"
+            name="email"
+            className={css.formField}
+            placeholder="Enter email..."
+          />
           <ErrorMessage
             className={css.errorMessage}
-            name="name"
+            name="email"
             component="span"
           />
         </label>
         <label className={css.formLabel}>
           Password
-          <Field type="password" name="password" className={css.formField} />
+          <Field
+            type="password"
+            name="password"
+            className={css.formField}
+            placeholder="Enter password..."
+          />
           <ErrorMessage
             className={css.errorMessage}
-            name="name"
+            name="password"
             component="span"
           />
         </label>
