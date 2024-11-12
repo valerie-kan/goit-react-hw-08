@@ -1,5 +1,6 @@
 import { IoPerson } from "react-icons/io5";
 import { FaPhone } from "react-icons/fa6";
+import { RiDeleteBin6Line } from "react-icons/ri";
 import { useState } from "react";
 
 import css from "./Contact.module.css";
@@ -31,7 +32,7 @@ const Contact = ({ id, name, number }) => {
         </p>
       </div>
       <button className={css.btn} type="button" onClick={handleClick}>
-        Delete
+        <RiDeleteBin6Line />
       </button>
       {isModalOpen && <Modal id={id} onModalClose={onModalClose} />}
     </li>
