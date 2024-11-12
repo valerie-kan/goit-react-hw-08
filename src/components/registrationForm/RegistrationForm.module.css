@@ -1,0 +1,42 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  padding: 20px;
+  margin: 20px auto;
+  border: 2px solid #285296;
+  box-shadow: 2px 2px 28px #0492f133;
+  border-radius: 6px;
+}
+
+.formLabel {
+  display: flex;
+  flex-direction: column;
+}
+
+.formLabel:not(:first-child) {
+  margin-top: 15px;
+}
+
+.formBtn {
+  align-self: center;
+  background-color: #888888a5;
+  border-radius: 6px;
+  border: 1px solid black;
+  min-width: 150px;
+  margin-top: 15px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.formBtn:hover {
+  background-color: rgb(40, 82, 150);
+}
+
+.formField {
+  padding: 5px 10px;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 12px;
+}
