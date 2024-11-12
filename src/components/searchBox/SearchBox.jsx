@@ -10,7 +10,9 @@ const SearchBox = () => {
 
   return (
     <label className={css.searchBox}>
-      <span style={{ fontSize: "17px" }}>Find contacts by name or number</span>
+      <span style={{ fontSize: "17px", marginBottom: "5px" }}>
+        Find contacts by name or number
+      </span>
       <input
         className={css.searchInp}
         type="text"

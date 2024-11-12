@@ -16,11 +16,11 @@ export const ContactList = () => {
   return (
     <>
       {!startFilter && filteredList.length === 0 && !isLoading && (
-        <p className={css.noContactsMess}>There is no contacts yet 😔</p>
+        <p className={css.noContactsMess}>There are no contacts yet 😔</p>
       )}
       {startFilter && filteredList.length === 0 ? (
         <p className={css.noContactsMess}>
-          There is no contacts according to your search...
+          There are no contacts according to your search...
         </p>
       ) : (
         <ul className={css.contactList}>
