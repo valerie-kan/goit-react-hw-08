@@ -31,7 +31,7 @@ const ContactForm = () => {
             className={css.formField}
             type="text"
             name="name"
-            autoComplete="off"
+            placeholder="John Smith"
           />
           <ErrorMessage
             className={css.errorMessage}
@@ -45,7 +45,7 @@ const ContactForm = () => {
             className={css.formField}
             type="text"
             name="number"
-            autoComplete="off"
+            placeholder="XXX-XXX-XXXX"
           />
           <ErrorMessage
             className={css.errorMessage}

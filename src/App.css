@@ -1,6 +1,13 @@
 #root {
-  width: 1280px;
-  padding: 1rem;
+  width: 100%;
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.3),
+      rgba(46, 47, 66, 0.3)
+    ),
+    url(./img/phoneBook-screen.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .logo {
@@ -23,18 +30,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }

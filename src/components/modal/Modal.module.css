@@ -6,7 +6,8 @@
 }
 
 .modal {
-  background-color: #285296;
+  background-color: rgba(211, 207, 207, 0.87);
+  color: #000000;
   width: 400px;
   position: absolute;
   top: 50%;
@@ -30,10 +31,12 @@
 }
 
 .btn {
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: currentColor;
 }
 
 .btn:hover {
-  border: 1px solid #285296;
+  border: 1px solid #131313;
   transform: scale(1.1);
 }

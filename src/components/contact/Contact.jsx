@@ -25,14 +25,14 @@ const Contact = ({ id, name, number }) => {
     <li className={css.contactItem}>
       <div>
         <p>
-          <IoPerson style={{ color: "rgb(63, 175, 220)" }} /> {name}
+          <IoPerson /> {name}
         </p>
         <p>
-          <FaPhone style={{ color: "rgb(63, 175, 220)" }} /> {number}
+          <FaPhone /> {number}
         </p>
       </div>
       <button className={css.btn} type="button" onClick={handleClick}>
-        <RiDeleteBin6Line />
+        <RiDeleteBin6Line style={{ color: "black" }} />
       </button>
       {isModalOpen && <Modal id={id} onModalClose={onModalClose} />}
     </li>

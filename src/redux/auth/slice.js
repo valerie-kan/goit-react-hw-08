@@ -30,6 +30,7 @@ const authSlice = createSlice({
         state.user = payload.user;
       })
       .addCase(register.rejected, (state, { payload }) => {
+        console.log(payload);
         state.isLoading = false;
         state.error = payload;
       })
